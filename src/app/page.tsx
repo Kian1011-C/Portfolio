@@ -1,5 +1,6 @@
 import Navbar from "@/app/components/ui/Navbar";
 import Footer from "@/app/components/ui/Footer";
+import CommandPalette from "@/app/components/ui/CommandPalette";
 import HeroSection from "@/app/components/sections/HeroSection";
 import AboutSection from "@/app/components/sections/AboutSection";
 import TelemetrySection from "@/app/components/sections/TelemetrySection";
@@ -26,6 +27,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
+      <CommandPalette />
     </>
   );
 }
