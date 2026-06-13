@@ -58,45 +58,13 @@ export default function Navbar() {
           aria-label="Khai Nguyen Phuong — back to top"
         >
           {/* Custom tech logo symbol */}
-          <div className="relative w-8 h-8 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-            {/* Subtle glow behind the logo */}
-            <div className="absolute inset-0 rounded-full bg-blue-500/10 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <svg viewBox="0 0 100 100" className="w-8 h-8 relative z-10" aria-hidden="true">
-              <defs>
-                <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#3b82f6" />
-                  <stop offset="100%" stopColor="#818cf8" />
-                </linearGradient>
-              </defs>
-              {/* Outer circular boundary */}
-              <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="3" />
-              
-              {/* Monogram KP paths */}
-              <path
-                d="M38 28 L38 72"
-                fill="none"
-                stroke="url(#logo-grad)"
-                strokeWidth="7"
-                strokeLinecap="round"
-              />
-              <path
-                d="M38 28 C55 28, 57 50, 38 50"
-                fill="none"
-                stroke="url(#logo-grad)"
-                strokeWidth="7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M38 50 L58 72"
-                fill="none"
-                stroke="url(#logo-grad)"
-                strokeWidth="7"
-                strokeLinecap="round"
-              />
-              {/* Small accent node */}
-              <circle cx="58" cy="72" r="3.5" fill="#60a5fa" />
-            </svg>
+          <div className="relative w-8 h-8 flex items-center justify-center rounded-lg bg-slate-950/60 border border-blue-500/20 group-hover:border-blue-500/40 transition-colors duration-300 shadow-[0_0_12px_rgba(59,130,246,0.05)] group-hover:shadow-[0_0_16px_rgba(59,130,246,0.15)]">
+            <span className="font-mono text-sm font-bold tracking-tighter bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent select-none">
+              KP
+            </span>
+            {/* Blinking online indicator */}
+            <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+            <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 animate-ping opacity-75" />
           </div>
 
           {/* Terminal styled name brand */}
