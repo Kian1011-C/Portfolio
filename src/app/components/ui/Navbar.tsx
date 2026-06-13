@@ -54,18 +54,62 @@ export default function Navbar() {
         <a
           href="#hero"
           id="nav-logo"
-          className="flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-blue-400 focus-visible:rounded"
+          className="flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-blue-400 focus-visible:rounded group"
           aria-label="Khai Nguyen Phuong — back to top"
         >
-          <div
-            className="w-7 h-7 rounded-md flex items-center justify-center text-xs font-bold font-mono text-white"
-            style={{ background: "linear-gradient(135deg, #3b82f6, #6366f1)" }}
-            aria-hidden="true"
-          >
-            KP
+          {/* Custom tech logo symbol */}
+          <div className="relative w-8 h-8 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+            {/* Subtle glow behind the logo */}
+            <div className="absolute inset-0 rounded-lg bg-blue-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <svg viewBox="0 0 100 100" className="w-8 h-8 relative z-10" aria-hidden="true">
+              <defs>
+                <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#60a5fa" />
+                  <stop offset="100%" stopColor="#818cf8" />
+                </linearGradient>
+              </defs>
+              {/* Outer hexagon */}
+              <path
+                d="M50 12 L82 30.5 L82 69.5 L50 88 L18 69.5 L18 30.5 Z"
+                fill="none"
+                stroke="url(#logo-grad)"
+                strokeWidth="5"
+                strokeLinejoin="round"
+              />
+              {/* Left bracket */}
+              <path
+                d="M38 36 L32 42 L32 58 L38 64"
+                fill="none"
+                stroke="#60a5fa"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              {/* Right bracket */}
+              <path
+                d="M62 36 L68 42 L68 58 L62 64"
+                fill="none"
+                stroke="#60a5fa"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              {/* Database / Server stack inside */}
+              <path d="M43 45 L57 45" fill="none" stroke="url(#logo-grad)" strokeWidth="4" strokeLinecap="round" />
+              <path d="M43 50 L57 50" fill="none" stroke="url(#logo-grad)" strokeWidth="4" strokeLinecap="round" />
+              <path d="M43 55 L57 55" fill="none" stroke="url(#logo-grad)" strokeWidth="4" strokeLinecap="round" />
+              {/* Online heartbeat green dot */}
+              <circle cx="50" cy="34" r="2.5" fill="#10b981" className="animate-ping origin-center" style={{ transformOrigin: "50px 34px" }} />
+              <circle cx="50" cy="34" r="2.5" fill="#10b981" />
+            </svg>
           </div>
-          <span className="font-semibold text-sm text-slate-200 hidden sm:block">
-            Khai<span className="text-blue-400">.</span>
+
+          {/* Terminal styled name brand */}
+          <span className="font-mono text-xs font-semibold tracking-tight text-slate-300 hidden sm:flex items-center gap-1 select-none">
+            <span className="text-blue-500 font-bold">~</span>
+            <span>khai</span>
+            <span className="text-indigo-400 font-bold">$</span>
+            <span className="w-1.5 h-3 bg-blue-500 inline-block animate-pulse ml-0.5" />
           </span>
         </a>
 
