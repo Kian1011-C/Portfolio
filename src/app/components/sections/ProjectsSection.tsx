@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView, useReducedMotion, AnimatePresence } from "motion/react";
 import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
+import { Tilt } from "@/app/components/ui/InteractiveWrappers";
 
 type Project = {
   title: string;
@@ -108,26 +109,21 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <motion.article
+    <motion.div
       ref={ref}
       initial={reduce ? false : { opacity: 0, y: 28 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="relative flex flex-col rounded-xl border transition-all duration-300 overflow-hidden group"
-      style={{
-        background: project.bgColor,
-        borderColor: project.borderColor,
-      }}
-      onMouseEnter={(e) => {
-        if (reduce) return;
-        (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
-        (e.currentTarget as HTMLElement).style.boxShadow = `0 20px 40px ${project.accentColor}18`;
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "none";
-      }}
+      className="h-full"
     >
+      <Tilt
+        className="relative flex flex-col h-full rounded-xl border transition-all duration-300 overflow-hidden group"
+        maxRotation={6}
+        style={{
+          background: project.bgColor,
+          borderColor: project.borderColor,
+        }}
+      >
       {/* Top accent bar */}
       <div
         className="absolute top-0 left-0 right-0 h-0.5"
@@ -215,7 +211,8 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
           )}
         </AnimatePresence>
       </div>
-    </motion.article>
+    </Tilt>
+  </motion.div>
   );
 }
 

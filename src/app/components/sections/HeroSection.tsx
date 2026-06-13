@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowDown, Download, Mail } from "lucide-react";
+import { Tilt, Magnetic } from "@/app/components/ui/InteractiveWrappers";
 
 const roles = [
   "Backend Developer",
@@ -148,30 +149,36 @@ export default function HeroSection() {
               {...fadeUp(0.4)}
               className="flex flex-wrap gap-3 mt-2"
             >
-              <a
-                href="#projects"
-                id="hero-cta-projects"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-blue-400 focus-visible:outline-offset-2"
-              >
-                View Projects
-              </a>
-              <a
-                href="/cv.pdf"
-                id="hero-cta-cv"
-                download
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg glass border border-white/10 hover:border-blue-500/40 text-slate-200 font-semibold text-sm transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-blue-400 focus-visible:outline-offset-2"
-              >
-                <Download size={15} />
-                Download CV
-              </a>
-              <a
-                href="#contact"
-                id="hero-cta-contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg glass border border-white/10 hover:border-indigo-500/40 text-slate-200 font-semibold text-sm transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-blue-400 focus-visible:outline-offset-2"
-              >
-                <Mail size={15} />
-                Contact Me
-              </a>
+              <Magnetic>
+                <a
+                  href="#projects"
+                  id="hero-cta-projects"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-blue-400 focus-visible:outline-offset-2"
+                >
+                  View Projects
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a
+                  href="/cv.pdf"
+                  id="hero-cta-cv"
+                  download
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg glass border border-white/10 hover:border-blue-500/40 text-slate-200 font-semibold text-sm transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-blue-400 focus-visible:outline-offset-2"
+                >
+                  <Download size={15} />
+                  Download CV
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a
+                  href="#contact"
+                  id="hero-cta-contact"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg glass border border-white/10 hover:border-indigo-500/40 text-slate-200 font-semibold text-sm transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-blue-400 focus-visible:outline-offset-2"
+                >
+                  <Mail size={15} />
+                  Contact Me
+                </a>
+              </Magnetic>
             </motion.div>
 
             {/* Quick social links */}
@@ -211,7 +218,7 @@ export default function HeroSection() {
                 }}
                 aria-hidden="true"
               />
-              <div className="relative glass-accent rounded-2xl p-1 glow-blue">
+              <Tilt className="relative glass-accent rounded-2xl p-1 glow-blue group">
                 <div className="relative w-72 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[420px] rounded-xl overflow-hidden bg-slate-900">
                   {/* Profile photo */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -236,7 +243,7 @@ export default function HeroSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Tilt>
 
               {/* Floating stat chips */}
               <motion.div
